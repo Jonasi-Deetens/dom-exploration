@@ -32,6 +32,16 @@ const confirmPassword = (e, input) => {
     }
 }
 
+const toggle = (e) => {
+    console.log(e.target.value)
+    if (e.target.value === "light") 
+    {
+        document.body.style.backgroundColor = "white";
+    } else {
+        document.body.style.backgroundColor = "black";
+    }
+}
+
 const inputs = document.querySelectorAll("input");
 const input = inputs[0];
 input.addEventListener("keyup", changeLabelText);
@@ -43,3 +53,6 @@ const passwordInput = inputs[2];
 const confirmPasswordInput = inputs[3];
 passwordInput.addEventListener("keyup", checkPassword);
 confirmPasswordInput.addEventListener("keyup", confirmPassword);
+
+const darkModeToggle = document.querySelector("#toggle-darkmode");
+darkModeToggle.addEventListener("change", toggle);
