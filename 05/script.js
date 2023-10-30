@@ -14,6 +14,13 @@ const clickOnSquare = (e) => {
 
   const wrapper = document.querySelector(".displayedsquare-wrapper");
   wrapper.appendChild(newDiv);
+
+  const listItem = document.createElement("li");
+  let text = document.createTextNode("["+ getElapsedTime() +"] Created a new "+ e.target.classList[1] + " square.");
+  listItem.appendChild(text);
+
+  const list = document.querySelector("ul");
+  list.appendChild(listItem);
 }
 
 const actionSquares = document.querySelectorAll('.actionsquare')
