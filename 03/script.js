@@ -3,12 +3,21 @@ const learners = ["Jonasi", "Thiery", "Allesandro", "Alex", "Pieter", "Eduarda"]
 
 learners.forEach(learner => {
     const newSection = document.createElement("section");
-    newSection.style.backgroundColor = 'rgb('+ Math.random()*250 +', '+ Math.random()*250 +', ' + Math.random()*250 +')';
+    const rgb = [Math.random()*250, Math.random()*250, Math.random()*250];
+    newSection.style.backgroundColor = 'rgb('+ rgb[0] +', '+ rgb[1] +', '+ rgb[2] +')';
 
     const p = document.createElement("p");
     let text = document.createTextNode(learner);
     p.appendChild(text);
+    p.style.color = contrast(rgb);
 
     newSection.append(p);
     article.appendChild(newSection);
 });
+
+function contrast(rgb) {
+    const threshold = 149;
+    brightness = (299*rgb[0] + 587*rgb[1] + 114*rgb[2]) / 1000
+
+    return (brightness > threshold) ? '#000000' : '#ffffff';
+  }
