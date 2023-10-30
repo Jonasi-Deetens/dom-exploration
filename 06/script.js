@@ -15,9 +15,31 @@ const unhideText = (e) => {
     }
 }
 
+const checkPassword = (e) => {
+    if (e.target.value.length < 6) {
+        e.target.style.backgroundColor = "red";
+    } else {
+        e.target.style.backgroundColor = "white";
+    }
+}
+
+const confirmPassword = (e, input) => {
+    const pwd = document.getElementById("pwd");
+    if (e.target.value === pwd.value) {
+        e.target.style.backgroundColor = "white";
+    } else {
+        e.target.style.backgroundColor = "red";
+    }
+}
+
 const inputs = document.querySelectorAll("input");
 const input = inputs[0];
 input.addEventListener("keyup", changeLabelText);
 
 const ageInput = inputs[1];
 ageInput.addEventListener("keyup", unhideText);
+
+const passwordInput = inputs[2];
+const confirmPasswordInput = inputs[3];
+passwordInput.addEventListener("keyup", checkPassword);
+confirmPasswordInput.addEventListener("keyup", confirmPassword);
