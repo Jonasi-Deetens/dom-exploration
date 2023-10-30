@@ -27,3 +27,17 @@ const actionSquares = document.querySelectorAll('.actionsquare')
 for (let actionSquare of actionSquares) {
   actionSquare.addEventListener('click', clickOnSquare)
 }
+
+document.body.addEventListener("keypress", (key) => {
+    if (key.code == "Space") {
+        const rgb = [Math.random()*250, Math.random()*250, Math.random()*250];
+        document.body.style.backgroundColor = 'rgb('+ rgb[0] +', '+ rgb[1] +', '+ rgb[2] +')';
+        
+        const listItem = document.createElement("li");
+        let text = document.createTextNode("["+ getElapsedTime() +"] Pressed spacebar.");
+        listItem.appendChild(text);
+
+        const list = document.querySelector("ul");
+        list.appendChild(listItem);
+    }
+});
