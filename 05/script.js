@@ -11,6 +11,7 @@ const clickOnSquare = (e) => {
   const newDiv = document.createElement("div");
   newDiv.classList.add("displayedsquare");
   newDiv.classList.add(e.target.classList[1]);
+  newDiv.addEventListener('click', clickOnDisplayedSquare)
 
   const wrapper = document.querySelector(".displayedsquare-wrapper");
   wrapper.appendChild(newDiv);
@@ -21,6 +22,11 @@ const clickOnSquare = (e) => {
 
   const list = document.querySelector("ul");
   list.appendChild(listItem);
+}
+
+const clickOnDisplayedSquare = (e) => {
+    console.log(e.target.classList[1])
+    alert(e.target.classList[1]);
 }
 
 const actionSquares = document.querySelectorAll('.actionsquare')
