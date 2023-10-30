@@ -4,6 +4,6 @@ title.innerHTML = "Modifying the DOM";
 
 document.body.style.backgroundColor = "rgb(50,52,90)";
 
-for (const child of document.body.childNodes) {
+for (const child of document.body.children) {
     console.log(child);
 };
