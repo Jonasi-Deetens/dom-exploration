@@ -41,6 +41,12 @@ collection.forEach(game => {
 
     const hr = document.createElement("hr");
     contentDiv.append(hr);
+    const a = document.createElement("a");
+    a.href = game.link;
+    const svg = document.createElement("img");
+    svg.src = "./images/steam.svg";
+    a.appendChild(svg);
+    contentDiv.append(a);
 
     card.appendChild(contentDiv);
     main.appendChild(card);
