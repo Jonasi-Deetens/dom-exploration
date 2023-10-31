@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Great DOM Drill</title>
+  <link rel="stylesheet" href="../assets/style.css">
 </head>
 
 <body>
@@ -64,6 +65,23 @@
             list.appendChild(clonedNode);
         }
     }
-    document.body.addEventListener("keyup", sortList)
+    document.body.addEventListener("keyup", sortList);
+
+    const selectDiv = document.createElement('div');
+    document.body.insertBefore(selectDiv, list);
+
+    const select = document.createElement('select');
+    const optionOne = document.createElement('option');
+    const optionTextOne = document.createTextNode("important franchises")
+    optionOne.appendChild(optionTextOne);
+
+    const optionTwo = document.createElement('option');
+    const optionTextTwo = document.createTextNode("normal franchises")
+    optionTwo.appendChild(optionTextTwo);
+
+    select.appendChild(optionOne);
+    select.appendChild(optionTwo);
+    selectDiv.appendChild(select);
+    
 </script>
 </html>
