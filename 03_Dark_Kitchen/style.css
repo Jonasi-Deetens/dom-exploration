@@ -5,6 +5,7 @@
 body {
     max-width: 75vw;
     margin: auto;
+    background-color: lightgray;
 }
 
 main {
@@ -14,12 +15,24 @@ main {
     width: 100%;
 }
 
+h3,h4 {
+    margin: 0;
+}
+
+h4 {
+    color: darkgrey;
+    font-weight: 300;
+}
+
 #header-container {
     display: flex;
+    padding: 20px;
+    margin-bottom: 50px;
 }
 
 .header-image {
     width: 150px;
+    border-radius: 100%;
 }
 
 .header-text {
@@ -27,6 +40,29 @@ main {
 }
 
 .card {
-    background-color: darkgray;
+    width: 20%;
+    margin: 10px;
+    background-color: white;
+}
+
+.card-image {
+    width: 100%;
+    margin: 0;
+    display: inline-block;
+}
+
+.card-content {
     padding: 15px;
+}
+
+.genres {
+    font-size: small;
+}
+
+@media (max-width: 1024px) {
+    .card {
+        width: 100%;
+        margin: 10px;
+        background-color: white;
+    }
 }

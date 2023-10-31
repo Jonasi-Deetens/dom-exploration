@@ -4,7 +4,7 @@ const collection = [
         developer: "Larian Studios",
         releaseDate: "3 Aug, 2023",
         genre: ["Adventure","RPG", "Strategy"],
-        image: "",
+        image: "./images/bg3.jpg",
         rating: "9.6"
     },
     {
@@ -12,7 +12,7 @@ const collection = [
         developer: "Larian Studios",
         releaseDate: "3 Aug, 2023",
         genre: ["Adventure","RPG", "Strategy"],
-        image: "",
+        image: "./images/bg3.jpg",
         rating: "9.6"
     },
     {
@@ -20,7 +20,7 @@ const collection = [
         developer: "Larian Studios",
         releaseDate: "3 Aug, 2023",
         genre: ["Adventure","RPG", "Strategy"],
-        image: "",
+        image: "./images/bg3.jpg",
         rating: "9.6"
     },
     {
@@ -28,7 +28,7 @@ const collection = [
         developer: "Larian Studios",
         releaseDate: "3 Aug, 2023",
         genre: ["Adventure","RPG", "Strategy"],
-        image: "",
+        image: "./images/bg3.jpg",
         rating: "9.6"
     },
     {
@@ -36,7 +36,7 @@ const collection = [
         developer: "Larian Studios",
         releaseDate: "3 Aug, 2023",
         genre: ["Adventure","RPG", "Strategy"],
-        image: "",
+        image: "./images/bg3.jpg",
         rating: "9.6"
     },
     {
@@ -44,7 +44,7 @@ const collection = [
         developer: "Larian Studios",
         releaseDate: "3 Aug, 2023",
         genre: ["Adventure","RPG", "Strategy"],
-        image: "",
+        image: "./images/bg3.jpg",
         rating: "9.6"
     },
     {
@@ -52,7 +52,7 @@ const collection = [
         developer: "Larian Studios",
         releaseDate: "3 Aug, 2023",
         genre: ["Adventure","RPG", "Strategy"],
-        image: "",
+        image: "./images/bg3.jpg",
         rating: "9.6" 
     },
     {
@@ -60,7 +60,7 @@ const collection = [
         developer: "Larian Studios",
         releaseDate: "3 Aug, 2023",
         genre: ["Adventure","RPG", "Strategy"],
-        image: "",
+        image: "./images/bg3.jpg",
         rating: "9.6" 
     },
     {
@@ -68,7 +68,7 @@ const collection = [
         developer: "Larian Studios",
         releaseDate: "3 Aug, 2023",
         genre: ["Adventure","RPG", "Strategy"],
-        image: "",
+        image: "./images/bg3.jpg",
         rating: "9.6"
     },
     {
