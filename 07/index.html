@@ -79,9 +79,24 @@
     const optionTextTwo = document.createTextNode("normal franchises")
     optionTwo.appendChild(optionTextTwo);
 
-    select.appendChild(optionOne);
     select.appendChild(optionTwo);
+    select.appendChild(optionOne);
     selectDiv.appendChild(select);
     
+    const toggle = (e) => {
+        if (e.target.value === "important franchises") {
+            for (const item of list.childNodes) {
+                console.log(item)
+                if(item.className !== "important" && item.nodeType === 1) {
+                    item.style.visibility = "hidden";
+                }
+            }
+        } else {
+            for (const item of list.childNodes) {
+                if (item.nodeType === 1) item.style.visibility = "visible";
+            }
+        }
+    }
+    select.addEventListener("change", toggle);
 </script>
 </html>
