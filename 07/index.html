@@ -52,6 +52,7 @@
         }
     }
 
+    // Create key up event which sorts the ul items randomly on pressing 'r'.
     const sortList = (e) => {
         if (e.code === "KeyR") {
             for (let index = 1; index < list.childNodes.length; index++) {
@@ -67,6 +68,7 @@
     }
     document.body.addEventListener("keyup", sortList);
 
+    // Create a div that contains a select box with an on change listener.
     const selectDiv = document.createElement('div');
     document.body.insertBefore(selectDiv, list);
 
