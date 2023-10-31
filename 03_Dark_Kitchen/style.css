@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 75vw;
+    margin: auto;
+}
+
+#header-container {
+    display: flex;
+}
+
+.header-image {
+    width: 150px;
+}
+
+.header-text {
+    width: 50%;
+}
