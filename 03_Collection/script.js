@@ -1,4 +1,5 @@
 import { collection } from "./collection.js";
+
 collection.forEach(game => {
     const main = document.querySelector("main");
     const card = document.createElement("section");
@@ -22,6 +23,7 @@ collection.forEach(game => {
     contentDiv.appendChild(p);
 
     const title = document.createElement("h3");
+    title.classList.add("title");
     let titleText = document.createTextNode(game.name);
     title.appendChild(titleText);
     contentDiv.appendChild(title);
@@ -79,6 +81,26 @@ function scaleCardDown(event) {
     for (const child of document.body.children[1].childNodes) {
         if (child.nodeType === 1 && !child.isEqualNode(event.target)) {
             child.style.filter = 'blur(0px)';
+        }
+    }
+}
+
+const searchbox = document.querySelector("#search");
+searchbox.addEventListener("keyup", filterCards);
+
+function filterCards(event) {
+    let keyword = event.target.value;
+    const main = document.querySelector("main");
+    for (const child of main.childNodes) {
+        if (child.nodeType === 1) {
+            child.style.display = "block";
+        }
+    }
+    console.log(keyword)
+    for (const child of main.childNodes) {
+        if (child.nodeType === 1 && keyword !== "") {
+            const title = child.querySelector(".title");
+            if (!title.innerHTML.toLowerCase().includes(keyword.toLowerCase())) child.style.display = "none";
         }
     }
 }

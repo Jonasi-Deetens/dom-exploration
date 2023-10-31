@@ -67,8 +67,12 @@ h4 {
 
 @media (max-width: 1024px) {
     .card {
+        width: 45%;
+    }
+}
+
+@media (max-width: 600px) {
+    .card {
         width: 100%;
-        margin: 10px;
-        background-color: white;
     }
 }
