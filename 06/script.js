@@ -23,7 +23,7 @@ const checkPassword = (e) => {
     }
 }
 
-const confirmPassword = (e, input) => {
+const confirmPassword = (e) => {
     const pwd = document.getElementById("pwd");
     if (e.target.value === pwd.value) {
         e.target.style.backgroundColor = "white";
