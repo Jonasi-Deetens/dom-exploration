@@ -66,9 +66,19 @@ function getGenres(list) {
 function scaleCard(event) {
     event.target.style.transform = 'scale(1.2)';
     event.target.style.zIndex = 1;
+    for (const child of document.body.children[1].childNodes) {
+        if (child.nodeType === 1 && !child.isEqualNode(event.target)) {
+            child.style.filter = 'blur(2px)';
+        }
+    }
 }
 
 function scaleCardDown(event) {
     event.target.style.transform = 'scale(1)';
     event.target.style.zIndex = 0;
+    for (const child of document.body.children[1].childNodes) {
+        if (child.nodeType === 1 && !child.isEqualNode(event.target)) {
+            child.style.filter = 'blur(0px)';
+        }
+    }
 }
