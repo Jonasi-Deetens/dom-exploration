@@ -3,6 +3,8 @@ collection.forEach(game => {
     const main = document.querySelector("main");
     const card = document.createElement("section");
     card.classList.add("card")
+    card.addEventListener("mouseenter", scaleCard);
+    card.addEventListener("mouseleave", scaleCardDown);
 
     const image = document.createElement("img");
     image.src = game.image;
@@ -47,7 +49,6 @@ collection.forEach(game => {
     svg.src = "./images/steam.svg";
     a.appendChild(svg);
     contentDiv.append(a);
-
     card.appendChild(contentDiv);
     main.appendChild(card);
 });
@@ -60,4 +61,14 @@ function getGenres(list) {
         if (i !== list.length-1) string += ", ";
     }
     return string;
+}
+
+function scaleCard(event) {
+    event.target.style.transform = 'scale(1.2)';
+    event.target.style.zIndex = 1;
+}
+
+function scaleCardDown(event) {
+    event.target.style.transform = 'scale(1)';
+    event.target.style.zIndex = 0;
 }
