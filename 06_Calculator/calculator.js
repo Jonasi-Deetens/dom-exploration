@@ -30,17 +30,40 @@ function addToScreen(event) {
     let key = event.target.textContent;
     switch (key) {
         case "X":
-            if (mathString !== "0") mathString += "*";
+            evaluateMath();
+            if (mathString !== "0") mathString += " * ";
             break;
+
+        case "/":
+            evaluateMath();
+            if (mathString !== "0") mathString += " / ";
+            break;
+
+        case "+":
+            evaluateMath();
+            if (mathString !== "0") mathString += " + ";
+            break;
+
+        case "-":
+            evaluateMath();
+            if (mathString !== "0") mathString += " - ";                
+            break;
+    
+        case "%":
+            evaluateMath();
+            convertToDecimal();
+            break;
+            
         case "AC":
             mathString = "0";
             break;
+
         case "=":
             evaluateMath();
             break;
 
         default:
-            if (mathString === "0" && key !== "/" && key !== "-" && key !== "+" && key !== "%") mathString = event.target.textContent;
+            if (mathString === "0") mathString = event.target.textContent;
             else if (mathString !== "0") {
                 mathString += event.target.textContent;
             }
@@ -50,4 +73,8 @@ function addToScreen(event) {
 
 function evaluateMath() {
     mathString = Function('return ' + mathString)();
+}
+
+function convertToDecimal() {
+    mathString = mathString / 100;
 }
