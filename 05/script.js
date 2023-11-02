@@ -26,7 +26,7 @@ const clickOnSquare = (e) => {
 
 const clickOnDisplayedSquare = (e) => {
     console.log(e.target.classList[1])
-    alert(e.target.classList[1]);
+    window.prompt(e.target.classList[1]);
 }
 
 const actionSquares = document.querySelectorAll('.actionsquare')
