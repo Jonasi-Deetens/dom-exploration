@@ -35,7 +35,7 @@ for (let actionSquare of actionSquares) {
 }
 
 document.body.addEventListener("keypress", (key) => {
-    if (key.code === "Space") {
+    if (key.key === "Space") {
         const rgb = [Math.random()*250, Math.random()*250, Math.random()*250];
         document.body.style.backgroundColor = 'rgb('+ rgb[0] +', '+ rgb[1] +', '+ rgb[2] +')';
         
