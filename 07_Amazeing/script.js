@@ -44,7 +44,9 @@ const LEVEL_1 = [
 
   const LEVELS = [LEVEL_1, LEVEL_2, LEVEL_3];
   
-  CURRENT_LEVEL = LEVELS[currentLevelId];
+  CURRENT_LEVEL = LEVELS[currentLevelId].map(function(arr) {
+    return arr.slice();
+});;
 
   generateLevel();
 
@@ -158,5 +160,7 @@ const LEVEL_1 = [
   function changeLevel() {
     currentLevelId++;
     if (currentLevelId > 2) currentLevelId = 0;
-    CURRENT_LEVEL = LEVELS[currentLevelId];
+    CURRENT_LEVEL =  LEVELS[currentLevelId].map(function(arr) {
+        return arr.slice();
+    });;
   }
