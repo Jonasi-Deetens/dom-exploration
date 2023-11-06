@@ -1,5 +1,6 @@
-const buttonsList = ["(", ")", "%", "AC", "7", "8", "9", "/", "4", "5", "6", "X", "1", "2", "3", "-", "0", ".", "=", "+"];
-const functionsList = ["(", ")", "%", "AC", "/", "X", "-", ".", "=", "+"];
+const buttonsList = ["(", ")", "%", "AC", "7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "0", ".", "=", "+"];
+const functionsList = ["(", ")", "%", "AC", "/", "*", "-", ".", "=", "+"];
+let lastPressedButton = "";
 let mathString = "0"
 
 const main = document.querySelector("main");
@@ -30,30 +31,45 @@ main.appendChild(buttonsElement);
 function addToScreen(event) {
     const screenText = document.querySelector("screen-message");
     let key = event.target.textContent;
+
     switch (key) {
-        case "X":
-            evaluateMath();
-            if (mathString !== "0") mathString += " * ";
+        case "*":
+            if (mathString !== "0" && (!functionsList.includes(lastPressedButton) || lastPressedButton === "=")) mathString += " * ";
+            else if (functionsList.includes(lastPressedButton) && lastPressedButton !== key) {
+                mathString = mathString.replace(lastPressedButton, "*");
+            }
             break;
 
         case "/":
-            evaluateMath();
-            if (mathString !== "0") mathString += " / ";
+            if (mathString !== "0" && (!functionsList.includes(lastPressedButton) || lastPressedButton === "=")) mathString += " / ";
+            else if (functionsList.includes(lastPressedButton) && lastPressedButton !== key) {
+                mathString = mathString.replace(lastPressedButton, key);
+            }
             break;
 
         case "+":
-            evaluateMath();
-            if (mathString !== "0") mathString += " + ";
+            if (mathString !== "0" && (!functionsList.includes(lastPressedButton) || lastPressedButton === "=")) mathString += " + ";
+            else if (functionsList.includes(lastPressedButton) && lastPressedButton !== key) {
+                mathString = mathString.replace(lastPressedButton, key);
+            }
             break;
 
         case "-":
-            evaluateMath();
-            if (mathString !== "0") mathString += " - ";                
+            if (mathString !== "0" && (!functionsList.includes(lastPressedButton) || lastPressedButton === "=")) mathString += " - ";
+            else if (functionsList.includes(lastPressedButton) && lastPressedButton !== key) {
+                mathString = mathString.replace(lastPressedButton, key);
+            }              
+            break;
+        
+        case ".":
+            if (mathString !== "0" && !functionsList.includes(lastPressedButton)) mathString += ".";
+            else if (functionsList.includes(lastPressedButton) && lastPressedButton !== key) {
+                mathString = mathString += ".";
+            }              
             break;
     
         case "%":
-            evaluateMath();
-            convertToDecimal();
+            //convertToDecimal();
             break;
             
         case "AC":
@@ -65,11 +81,12 @@ function addToScreen(event) {
             break;
 
         default:
-            if (mathString === "0") mathString = event.target.textContent;
-            else if (mathString !== "0") {
+            if (mathString === "0" || lastPressedButton === "=") mathString = event.target.textContent;
+            else if (mathString !== "0" && lastPressedButton !== "=") {
                 mathString += event.target.textContent;
             }
     }
+    lastPressedButton = key;
     pElement.textContent = mathString;
 }
 
