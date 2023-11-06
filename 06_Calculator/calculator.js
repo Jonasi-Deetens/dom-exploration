@@ -1,4 +1,5 @@
 const buttonsList = ["(", ")", "%", "AC", "7", "8", "9", "/", "4", "5", "6", "X", "1", "2", "3", "-", "0", ".", "=", "+"];
+const functionsList = ["(", ")", "%", "AC", "/", "X", "-", ".", "=", "+"];
 let mathString = "0"
 
 const main = document.querySelector("main");
@@ -18,6 +19,7 @@ buttonsList.forEach(button => {
     const buttonElement = document.createElement("button");
     buttonElement.textContent = button;
     buttonElement.addEventListener("click", addToScreen)
+    if (functionsList.includes(button)) buttonElement.classList.add("function-button");
 
     buttonsElement.appendChild(buttonElement);
 });
