@@ -40,4 +40,13 @@ p {
     .screen,.buttons {
         width: 100%;
     }
+    button {
+        width: 20%;
+    }
+}
+
+@media (max-width: 480px) {
+    button {
+        width: 18%;
+    }
 }
