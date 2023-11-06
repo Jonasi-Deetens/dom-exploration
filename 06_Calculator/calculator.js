@@ -45,40 +45,39 @@ function addToScreen(event) {
             if (mathString === "0" || lastPressedButton === "=") mathString = event.target.textContent;
             else if (mathString !== "0" && !functionsList.includes(lastPressedButton)) {
                 mathString += event.target.textContent;
-            }
-            addLastKey = false;
+            } else addLastKey = false;
             break;
 
         case "*":
-            if (mathString !== "0" && (!functionsList.includes(lastPressedButton) || lastPressedButton === "=")) mathString += " * ";
+            if (mathString !== "0" && (!functionsList.includes(lastPressedButton) || lastPressedButton === "=" || lastPressedButton === ")")) mathString += " * ";
             else if (mathString === "0") mathString += " * ";
             else if (functionsList.includes(lastPressedButton) && lastPressedButton !== key) {
                 mathString = mathString.substring(0, mathString.lastIndexOf(lastPressedButton)) + '* ';
-            }
+            } else addLastKey = false;
             break;
 
         case "/":
-            if (mathString !== "0" && (!functionsList.includes(lastPressedButton) || lastPressedButton === "=")) mathString += " / ";
+            if (mathString !== "0" && (!functionsList.includes(lastPressedButton) || lastPressedButton === "=" || lastPressedButton === ")")) mathString += " / ";
             else if (mathString === "0") mathString += " / ";
             else if (functionsList.includes(lastPressedButton) && lastPressedButton !== key) {
                 mathString = mathString.substring(0, mathString.lastIndexOf(lastPressedButton)) + '/ ';
-            }
+            } else addLastKey = false;
             break;
 
         case "+":
-            if (mathString !== "0" && (!functionsList.includes(lastPressedButton) || lastPressedButton === "=")) mathString += " + ";
+            if (mathString !== "0" && (!functionsList.includes(lastPressedButton) || lastPressedButton === "=" || lastPressedButton === ")")) mathString += " + ";
             else if (mathString === "0") mathString += " + ";
             else if (functionsList.includes(lastPressedButton) && lastPressedButton !== key) {
                 mathString = mathString.substring(0, mathString.lastIndexOf(lastPressedButton)) + '+ ';
-            }
+            } else addLastKey = false;
             break;
 
         case "-":
-            if (mathString !== "0" && (!functionsList.includes(lastPressedButton) || lastPressedButton === "=")) mathString += " - ";
+            if (mathString !== "0" && (!functionsList.includes(lastPressedButton) || lastPressedButton === "=" || lastPressedButton === ")")) mathString += " - ";
             else if (mathString === "0") mathString += " - ";
             else if (functionsList.includes(lastPressedButton) && lastPressedButton !== key) {
                 mathString = mathString.substring(0, mathString.lastIndexOf(lastPressedButton)) + '- ';
-            }              
+            } else addLastKey = false;         
             break;
         
         case ".":
@@ -90,7 +89,7 @@ function addToScreen(event) {
             break;
     
         case "%":
-            if (mathString !== "0" && !functionsList.includes(lastPressedButton)) {
+            if (mathString !== "0" && (!functionsList.includes(lastPressedButton) || lastPressedButton === "=")) {
                 convertToDecimal();
             }
             addLastKey = false;
@@ -106,9 +105,9 @@ function addToScreen(event) {
 
         default:
             if (mathString === "0" || lastPressedButton === "=") mathString = event.target.textContent;
-            else if (mathString !== "0" && lastPressedButton !== "=") {
+            else if (mathString !== "0" && lastPressedButton !== "=" && lastPressedButton !== ")") {
                 mathString += event.target.textContent;
-            }
+            } else addLastKey = false;
     }
     if (addLastKey) lastPressedButton = key;
     pElement.textContent = mathString;
