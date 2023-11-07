@@ -64,6 +64,24 @@ body {
     margin: auto;
 }
 
+.buy-button {
+    border-radius: 100%;
+    border: 3px solid black;
+    width: 60px;
+    height: 55px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 8px;
+}
+
+.buy-button:hover {
+    background-color: gold;
+}
+
+.buy-button:active {
+    background-color: white;
+}
+
 .card {
     width: 20%;
     margin: 20px;
@@ -96,17 +114,6 @@ body {
     height: 150px;
     width: 150px;
     margin: auto;
-}
-
-.buy-button {
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: 500;
-    margin: 8px;
-}
-
-.buy-button:hover {
-    background-color: yellow;
 }
 
 .clear-cart-button {
@@ -147,7 +154,7 @@ body {
 }
 
 .shopping-basket-button:hover {
-    background-color: yellow;
+    background-color: darkgray !important;
 }
 
 .span-item {
