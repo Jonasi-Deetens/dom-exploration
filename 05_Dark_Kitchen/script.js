@@ -27,6 +27,7 @@ pokemons.forEach(pokemon => {
     const imageFigure = document.createElement("figure");
     const image = document.createElement("img");
     image.src = pokemon.image;
+    image.alt = "pokemon-" + pokemon.name;
     image.classList.add("card-image");
     imageFigure.classList.add("card-figure");
     imageFigure.appendChild(image);

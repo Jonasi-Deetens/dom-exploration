@@ -106,8 +106,15 @@ body {
 
 .card-price {
     font-size: 18px;
-    font-weight: 400;
-    color: white;
+    font-weight: bold;
+    background-color: white;
+    border-radius: 15px;
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    color: black;
 }
 
 .card-image {
