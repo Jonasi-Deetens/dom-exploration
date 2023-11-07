@@ -99,8 +99,8 @@ console.log(a);
 
   function generateLevel() {
     const main = document.querySelector("main");
-    main.style.width = 18 * CURRENT_LEVEL[0].length + "px";
-    main.style.height = 18 * CURRENT_LEVEL.length + "px";
+    main.style.width = 50 * CURRENT_LEVEL[0].length + "px";
+    main.style.height = 50 * CURRENT_LEVEL.length + "px";
     main.innerHTML = "";
     for (let i = 0; i < CURRENT_LEVEL.length; i++) {
   
