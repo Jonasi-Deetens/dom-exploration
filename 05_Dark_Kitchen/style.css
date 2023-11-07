@@ -187,6 +187,12 @@ body {
     .card {
         width: 28%;
     }
+
+    .shopping-basket-button {
+        width: 45px;
+        height: 45px;
+        bottom: -22px;
+    }
 }
 
 @media (max-width: 760px) {

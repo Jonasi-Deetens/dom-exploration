@@ -46,6 +46,12 @@ const pokemons = [
         types: ["fairy"],
         price: 49.50,
         image: "./images/togepi.png"
+    },
+    {
+        name: "Piplup",
+        types: ["water"],
+        price: 849.50,
+        image: "./images/piplup.png"
     }
 ];
 
