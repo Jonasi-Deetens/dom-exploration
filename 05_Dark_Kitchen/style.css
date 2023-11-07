@@ -189,6 +189,11 @@ body {
         text-align: center;
     }
 
+    #shopping-cart-table td {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
     .card {
         width: 40%;
     }
