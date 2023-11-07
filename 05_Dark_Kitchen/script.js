@@ -2,6 +2,7 @@ import { pokemons } from "./pokemons.js";
 
 let totalPrice = 0;
 let cartIsOpen = false;
+let darkmode = false;
 let shoppingCart = [];
 
 const cartButton = document.querySelector(".shopping-basket-button");
@@ -12,6 +13,9 @@ clearCartButton.addEventListener("click", clearShoppingCart);
 
 const searchBar = document.querySelector("#search");
 searchBar.addEventListener("keyup", filterCards);
+
+const darkmodeButton = document.querySelector("#dark-mode-button");
+darkmodeButton.addEventListener("click", toggleDarkmode);
 
 const main = document.querySelector("main").children[1];
 pokemons.forEach(pokemon => {
@@ -45,14 +49,17 @@ pokemons.forEach(pokemon => {
             
             case 'electric':
                 spanItem.style.backgroundColor = "yellow";
+                spanItem.style.color = "black";
             break;
             
             case 'normal':
                 spanItem.style.backgroundColor = "gray";
+                spanItem.style.color = "black";
             break;
             
             case 'fairy':
                 spanItem.style.backgroundColor = "pink";
+                spanItem.style.color = "black";
             break;
             
             case 'water':
@@ -106,17 +113,19 @@ function addToCart(pokemon) {
     updateShoppingCart();
 }
 
-function clearShoppingCart() {
-    shoppingCart = [];
+function changeAmount(event, pokemon) {
+    shoppingCart.forEach(cartItem => {
+        if (cartItem.pokemon === pokemon) {
+            if (event.target.value >= 0) cartItem.amount = event.target.value;
+            else event.target.value = 0;
+        }
+    });
     updateShoppingCart();
 }
 
-function openCart() {
-    const cart = document.querySelector("#shopping-cart-content");
-    if (cartIsOpen) cart.style.display = "none";
-    else cart.style.display = "block";
-
-    cartIsOpen = !cartIsOpen;
+function clearShoppingCart() {
+    shoppingCart = [];
+    updateShoppingCart();
 }
 
 function filterCards(event) {
@@ -127,6 +136,46 @@ function filterCards(event) {
         if (title.textContent.toLowerCase().includes(event.target.value.toLowerCase())) title.parentElement.style.display = "block";
         else title.parentElement.style.display = "none";
     })
+}
+
+function openCart() {
+    const cart = document.querySelector("#shopping-cart-content");
+    if (cartIsOpen) cart.style.display = "none";
+    else cart.style.display = "block";
+
+    cartIsOpen = !cartIsOpen;
+}
+
+function removeCartItem(pokemon) {
+    shoppingCart.forEach(cartItem => {
+        console.log(cartItem.pokemon);
+        console.log(shoppingCart.indexOf(cartItem));
+        if (cartItem.pokemon === pokemon) shoppingCart.splice(shoppingCart.indexOf(cartItem),1);
+    });
+    updateShoppingCart();
+}
+
+function toggleDarkmode() {
+    const header = document.querySelector("#header-container");
+    const cards = document.querySelectorAll(".card");
+    const darkmodeButton = document.querySelector("#dark-mode-button");
+
+    darkmode = !darkmode;
+    if (darkmode) {
+        header.classList.add("dark-mode");
+        cards.forEach(card => {
+            card.classList.add("dark-mode");
+        });
+        document.body.style.backgroundColor = "#ffd700";
+        darkmodeButton.textContent = "Light Mode";
+    } else {
+        header.classList.remove("dark-mode");
+        cards.forEach(card => {
+            card.classList.remove("dark-mode");
+        });
+        document.body.style.backgroundColor = "#fff";
+        darkmodeButton.textContent = "Dark Mode";
+    }
 }
 
 function updateShoppingCart() {
@@ -170,25 +219,6 @@ function updateShoppingCart() {
 
     updateTotalPrice();
     cart.appendChild(tbl);
-}
-
-function changeAmount(event, pokemon) {
-    shoppingCart.forEach(cartItem => {
-        if (cartItem.pokemon === pokemon) {
-            if (event.target.value >= 0) cartItem.amount = event.target.value;
-            else event.target.value = 0;
-        }
-    });
-    updateShoppingCart();
-}
-
-function removeCartItem(pokemon) {
-    shoppingCart.forEach(cartItem => {
-        console.log(cartItem.pokemon);
-        console.log(shoppingCart.indexOf(cartItem));
-        if (cartItem.pokemon === pokemon) shoppingCart.splice(shoppingCart.indexOf(cartItem),1);
-    });
-    updateShoppingCart();
 }
 
 function updateTotalPrice() {
