@@ -184,6 +184,14 @@ body {
 }
 
 @media (max-width: 1024px) {
+    #main-content {
+        padding-top: 20px;
+    }
+
+    #header-container {
+        padding-bottom: 30px;
+    }
+
     .card {
         width: 28%;
     }
