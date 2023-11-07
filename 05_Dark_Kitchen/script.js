@@ -159,6 +159,9 @@ function toggleDarkmode() {
     const header = document.querySelector("#header-container");
     const cards = document.querySelectorAll(".card");
     const darkmodeButton = document.querySelector("#dark-mode-button");
+    const shoppingCartButton = document.querySelector(".shopping-basket-button");
+    const shoppingCartSVG = document.querySelector("#shopping-cart-svg");
+    const headerImage = document.querySelector(".header-image");
 
     darkmode = !darkmode;
     if (darkmode) {
@@ -166,8 +169,11 @@ function toggleDarkmode() {
         cards.forEach(card => {
             card.classList.add("dark-mode");
         });
-        document.body.style.backgroundColor = "#ffd700";
+        document.body.style.backgroundColor = "gold";
         darkmodeButton.textContent = "Light Mode";
+        shoppingCartButton.classList.add("dark-mode");
+        headerImage.classList.add("dark-mode");
+        shoppingCartSVG.style.fill = "gold";
     } else {
         header.classList.remove("dark-mode");
         cards.forEach(card => {
@@ -175,6 +181,9 @@ function toggleDarkmode() {
         });
         document.body.style.backgroundColor = "#fff";
         darkmodeButton.textContent = "Dark Mode";
+        shoppingCartButton.classList.remove("dark-mode");
+        headerImage.classList.remove("dark-mode");
+        shoppingCartSVG.style.fill = "#000000";
     }
 }
 
