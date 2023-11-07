@@ -13,22 +13,50 @@ body {
     justify-content: space-between;
 }
 
+#shopping-cart {
+    position: relative;
+}
+
+#shopping-cart-content {
+    text-align: center;
+    display: none;
+    padding-bottom: 20px;
+    border-bottom: 4px solid black;
+}
+
+#shopping-cart-table {
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+#shopping-cart-table td {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
 #header-container {
     display: flex;
     padding: 20px;
-    margin-bottom: 50px;
     background-color: red;
-    border-bottom: 2px solid black;
+    border-bottom: 4px solid black;
+}
+
+#header-title {
+    font-size: xx-large;
+    filter: drop-shadow(1px 1px 0px white);
 }
 
 .header-image {
     height: 150px;
     width: 150px;
     border-radius: 100%;
+    background-color: white;
+    border: 2px solid black;
 }
 
 .header-text {
     width: 50%;
+    margin: auto;
 }
 
 .card {
@@ -37,6 +65,7 @@ body {
     background-color: red;
     text-align: center;
     border-radius: 20px;
+    border: 1px solid black;
     box-shadow: 0px 2px 3px black;
 }
 
@@ -49,12 +78,14 @@ body {
 }
 
 .card-title {
+    font-size: x-large;
     font-weight: 600;
 }
 
 .card-price {
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 400;
+    color: white;
 }
 
 .card-image {
@@ -65,11 +96,64 @@ body {
 
 .buy-button {
     border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
     margin: 8px;
+}
+
+.buy-button:hover {
+    background-color: yellow;
+}
+
+.clear-cart-button {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.cart-amount-input {
+    margin-left: 5px;
+    width: 50px;
+    text-align: right;
+}
+
+.shopping-basket {
+    text-align: center;
+    margin: auto;
+}
+
+.shopping-basket-button {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    padding: 5px;
+    margin: 0;
+    border: 4px solid black;
+    margin: auto;
+}
+
+.shopping-basket-button:hover {
+    background-color: yellow;
 }
 
 .span-item {
     margin-left: 5px;
     padding: 5px;
     border-radius: 5px;
+}
+
+.price-paragraph {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.remove-button {
+    color: red;
+    border: none;
+    float: left;
+    margin: auto;
+    background-color: transparent;
 }
